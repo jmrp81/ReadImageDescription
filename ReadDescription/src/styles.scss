@@ -1,0 +1,96 @@
+/* Elementos styles */
+@-ms-viewport{
+    width: device-width;
+}
+
+@import "styles/variables";
+@import "styles/backgrounds";
+@import "styles/scroll";
+@import "styles/MediaScreen";
+
+/* DOM */
+html {
+    width: 100vw;
+    height: 100vh;  
+    overflow: hidden;
+}
+
+body {
+    width: 98vw;
+    height: 90vh;
+    color: $color-primary-white;
+}
+
+
+// Iconos e imagenes
+.icon {
+    width: 45px;
+}
+
+.imagesSocialMedia {
+    width: 3em;
+}
+
+// contenido
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 97vw;
+    height: 75vh;
+    background-color: $color-background-transparent;
+    overflow-y: hidden;
+    padding: 0.75em 0.2em 0.2em 0.2em;
+}
+
+// pie
+footer {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    color: $color-primary-white;
+    background-color: $color-background-transparent;
+}
+
+footer a:link {
+    color: $color-primary-white;
+    text-decoration: none;
+}
+
+footer a:visited { 
+    color: $color-primary-white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer a:hover { 
+    color: $color-secondary;
+    text-decoration: none;
+}
+  
+footer a:link:active, footer a:visited:active { 
+    color: $color-secondary-white;
+    text-decoration: none;
+}
+
+footer label {
+    padding: 0 0 0 2em;
+}
+
+footer p {
+    padding: 0 0 0 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-content: center;
+}
+
+footer a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer p img {
+    margin-right: 1.5em;
+}

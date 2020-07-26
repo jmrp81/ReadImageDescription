@@ -1,0 +1,8 @@
+<div class="galery-container">
+    <ul class="galery-container-list">
+        <li *ngFor="let currentImage of imageList">
+            <img class="galery-container-list-image" src={{currentImage.url}} alt={{currentImage.alt}}>
+            <label class="labelDescription">Descripción: {{currentImage.alt}}</label>
+        </li>
+    </ul>
+</div>

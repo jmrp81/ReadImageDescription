@@ -1,0 +1,60 @@
+/* Colors */
+$color-primary-header: #c8c1c8;
+$color-primary-white: #faf8fa;
+$color-primary: #6f256f;
+$color-secondary: #956195;
+$color-secondary-white: #dfcadf;
+$color-tertiary: #550255;
+$color-dark: #220022;
+$color-green: #6aab79;
+$color-white: #FFFFFF;
+
+/* Fonts */
+$general-font: Helvetica, sans-serif;
+
+/* title */
+$text-size-title: 2em;
+
+/* sub-title */
+$text-size-subtitle: 1.5em;
+
+/* Containers */
+$left-margin-general-container: 20%;
+$right-margin-general-container: 20%;
+$top-margin-general-container: 1%;
+$bottom-margin-general-container: 1%;
+$all-margin-general-containers-: $top-margin-general-container $right-margin-general-container $bottom-margin-general-container $left-margin-general-container;
+$thin-margin-containers-: 1% 5% 1% 5%;
+
+/* Background */
+$color-background-transparent: transparent;
+$color-background-primary: #6f256f;
+$color-background-secondary: #4d194d;
+$color-background-white: #ffffff;
+$color-background-container: #2b2828;
+
+/* Box */
+$color-border-input: #BEBEBE;
+$color-box-shadow: rgba(0, 0, 0, 0.2);
+$color-box-shadow-light: #CCCCCC;
+$BoxBorders: 0.15em solid $color-primary;
+$BoxBorderRadius: 0.40em;
+$BoxPadding: 1em;
+$BoxMargin: 1.5%;
+$BoxMargin-medium: 1%;
+$BoxMargin-small: 0.5%;
+
+/* Buttons */
+$color-background-button: $color-tertiary;
+$ButtonBorders: 2px solid $color-background-button;
+$Button-box-shadow-general: 2px 2px 2px 0 rgba(117, 54, 54, 0.2);
+$Button-box-shadow: 2px 2px 2px 0 rgba(117, 54, 54, 0.2);
+
+/* Inputs */
+$border-input: 1px solid $color-secondary;
+$padding-input: 0.2em;
+$margin-input: 0 0.5em 0 0.5em;
+
+/* border line */
+$border-radius-size: 10px;
+$decorative-line-border: 1px solid $color-secondary;

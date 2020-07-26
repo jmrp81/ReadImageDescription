@@ -1,0 +1,35 @@
+/* Elementos styles */
+@import "../../../../src/styles/variables";
+
+.galery-container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 70vh;
+    margin-top: 1.5em;
+    margin-left: 10%;
+    overflow-y: auto;
+}
+
+.galery-container-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.galery-container-list li{
+    list-style:none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5em;
+}
+
+.galery-container-list-image {
+    width: 30%;
+}
+
+.labelDescription {
+    font-size: 1.5em;
+}
