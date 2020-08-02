@@ -1,0 +1,215 @@
+﻿<UserControl x:Class="GetDescriptionImageApp.Presentation.Controls.ConfigurationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ucShared="clr-namespace:GetDescriptionImageApp.Presentation.Controls.Shared"
+             xmlns:resx="clr-namespace:GetDescriptionImageApp.Resources"
+             mc:Ignorable="d" 
+             x:Name="ConfigurationContainer">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="../../Resources/StylesResources.xaml" />
+    </UserControl.Resources>
+
+    <Grid Style="{StaticResource GridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="LabelAzure"
+               Grid.Row="0" Grid.Column="1" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Content="{x:Static resx:GeneralResources.Azure}" />
+
+        <Label x:Name="LabelAzureLanguage"
+               Grid.Row="1" Grid.Column="0" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=LanguageGroup}"
+               Content="{x:Static resx:GeneralResources.Language}" />
+
+        <StackPanel x:Name="AzureLanguage"
+            Grid.Row="1" Grid.Column="1"  
+            Height="30" 
+            Margin="20 5 20 5"
+            Orientation="Horizontal">
+            <RadioButton x:Name="radioEnglish" 
+                         Style="{StaticResource RadioStyle}"
+                         Content="{x:Static resx:GeneralResources.English}" 
+                         Click="radioEnglishClick"
+                         GroupName="LanguageGroup" 
+                         IsChecked="{Binding IsEnglish}"/>
+            <RadioButton x:Name="radioSpanish" 
+                         Style="{StaticResource RadioStyle}"
+                         Content="{x:Static resx:GeneralResources.Spanish}" 
+                         Click="radioSpanishClick"
+                         GroupName="LanguageGroup" 
+                         IsChecked="{Binding IsSpanish}"/>
+            <CheckBox x:Name="radioTranslateSpanish" 
+                         Style="{StaticResource CheckStyle}"
+                         Content="{x:Static resx:GeneralResources.SpanishTranslate}"
+                         IsChecked="{Binding IsSpanishWithTransalation}"/>
+
+        </StackPanel>
+
+        <Label x:Name="LabelAzureCandidates"
+               Grid.Row="2" Grid.Column="0" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=AzureCandidates}"
+               Content="{x:Static resx:GeneralResources.MaxCandidates}" />
+
+        <TextBox x:Name="AzureCandidates"
+                Grid.Row="2" 
+                Grid.Column="1"   
+                Style="{StaticResource TextBloxConfigurationStyle}"
+                MaxLength="1"
+                PreviewTextInput="NumberValidationTextBox"  
+                VerticalContentAlignment="Center"
+                Text="{Binding MaxCandidateNum}"
+                AutomationProperties.LabeledBy="{Binding ElementName=LabelAzureCandidates}"/>
+
+        <Label x:Name="LabelAzureSuscriptionkey"
+               Grid.Row="3" Grid.Column="0" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=AzureKey}"
+               Content="{x:Static resx:GeneralResources.AzureKey}" />
+
+        <TextBox x:Name="AzureKey" 
+                 Grid.Row="3" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBloxConfigurationStyle}"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding Azurekey}"
+                 AutomationProperties.LabeledBy="{Binding ElementName=LabelAzureSuscriptionkey}"/>
+
+        <Label x:Name="LabelAzureUrl"
+               Grid.Row="4" Grid.Column="0" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=AzureUrl}"
+               Content="{x:Static resx:GeneralResources.UrlAzure}" />
+
+        <TextBox x:Name="AzureUrl" 
+                 Grid.Row="4" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBloxConfigurationStyle}"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding URLAzure}"
+                 AutomationProperties.LabeledBy="{Binding ElementName=LabelAzureUrl}"/>
+
+        <Label x:Name="LabelAzureRequest"
+               Grid.Row="5" Grid.Column="0" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=AzureRequest}"
+               Content="{x:Static resx:GeneralResources.RequestAzure}" />
+
+        <TextBox x:Name="AzureRequest" 
+                 Grid.Row="5" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBloxConfigurationStyle}"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding RequestMaxAzure}"
+                 AutomationProperties.LabeledBy="{Binding ElementName=LabelAzureRequest}"/>
+
+
+        <Label x:Name="LabelAzureTranslateSubscriptionKey"
+               Grid.Row="6" Grid.Column="0" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=AzureTranslateSubscriptionKeyRequest}"
+               Content="{x:Static resx:GeneralResources.AzureTranslateKey}" />
+
+        <TextBox x:Name="AzureTranslateSubscriptionKeyRequest" 
+                 Grid.Row="6" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBloxConfigurationStyle}"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding RequestTranslateSubscriptionKey}"
+                 AutomationProperties.LabeledBy="{Binding ElementName=LabelAzureTranslateSubscriptionKey}"/>
+
+        <Label x:Name="LabelAzureGeneralTranslateURL"
+               Grid.Row="7" Grid.Column="0" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=AzureGeneralTranslateURLRequest}"
+               Content="{x:Static resx:GeneralResources.URLTranslateAzure}" />
+
+        <TextBox x:Name="AzureGeneralTranslateURLRequest" 
+                 Grid.Row="7" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBloxConfigurationStyle}"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding RequestGeneralTranslateURL}"
+                 AutomationProperties.LabeledBy="{Binding ElementName=LabelAzureGeneralTranslateURL}"/>
+
+        <Label x:Name="LabelAzureTranslateRegion"
+               Grid.Row="8" Grid.Column="0" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=AzureTranslateRegion}"
+               Content="{x:Static resx:GeneralResources.RegionAzure}" />
+
+        <TextBox x:Name="AzureTranslateRegion" 
+                 Grid.Row="8" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBloxConfigurationStyle}"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding RequestTranslateRegion}"
+                 AutomationProperties.LabeledBy="{Binding ElementName=LabelAzureTranslateRegion}"/>
+
+
+        <StackPanel Grid.Row="9" 
+                    Grid.Column="1" 
+                    HorizontalAlignment="Right"
+                    Margin="0 0 15 0">
+
+            <ucShared:GeneralButtonControl
+                VerticalContentAlignment="Center"
+                ImageName="/Assets/Images/configuration.png"  
+                TextValue="{x:Static resx:GeneralResources.SaveChanges}"
+                CustomClick="SaveConfiguration"/>
+        </StackPanel>
+
+        <ucShared:SpinnerControl x:Name="SpinnerConfiguration"
+                    Visibility="Hidden"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.RowSpan="10"
+                    Grid.ColumnSpan="2"
+                    VerticalContentAlignment="Center"
+                    Diameter="200"
+                    ColorA="#E880DF" 
+                    ColorB="#3CBCE8" 
+                    Opacity="0.8"
+                    Background="Black"
+                    Height="{Binding ElementName=ConfigurationContainer, Path=ActualHeight}"
+                    Width="{Binding ElementName=ConfigurationContainer, Path=ActualWidth}"/>
+    </Grid>
+</UserControl>

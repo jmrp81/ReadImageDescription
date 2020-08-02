@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>DescriptionImageApp</AssemblyName>
+    <ApplicationIcon>camera.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Icons\box.svg" />
+    <None Remove="Assets\Icons\camera.svg" />
+    <None Remove="Assets\Icons\cancel.svg" />
+    <None Remove="Assets\Icons\check.svg" />
+    <None Remove="Assets\Icons\comments.svg" />
+    <None Remove="Assets\Icons\configuration.svg" />
+    <None Remove="Assets\Icons\download.svg" />
+    <None Remove="Assets\Icons\pencil.svg" />
+    <None Remove="Assets\Icons\save.svg" />
+    <None Remove="Assets\Icons\trash.svg" />
+    <None Remove="Assets\Icons\upload.svg" />
+    <None Remove="Assets\Images\Afaya_enano.jpg" />
+    <None Remove="Assets\Images\box.png" />
+    <None Remove="Assets\Images\camera.png" />
+    <None Remove="Assets\Images\cancel.png" />
+    <None Remove="Assets\Images\check.png" />
+    <None Remove="Assets\Images\comments.png" />
+    <None Remove="Assets\Images\configuration.png" />
+    <None Remove="Assets\Images\download.png" />
+    <None Remove="Assets\Images\pencil.png" />
+    <None Remove="Assets\Images\save.png" />
+    <None Remove="Assets\Images\trash.png" />
+    <None Remove="Assets\Images\upload.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Images\box.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\camera.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\cancel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\check.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\comments.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\configuration.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\download.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\pencil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\save.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Afaya_enano.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Assets\Images\svgs\box.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\camera.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\cancel.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\check.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\comments.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\configuration.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\download.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\pencil.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\save.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\trash.svg" />
+    <EmbeddedResource Include="Assets\Images\svgs\upload.svg" />
+    <Content Include="Assets\Images\trash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\upload.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Images\ToUpload\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="6.0.0-dev.20190919.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NLog" Version="4.7.2" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.0-preview.5.20278.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="NLog.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NLog.config</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\GeneralResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GeneralResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\GeneralResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NLog.config">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>NLog.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

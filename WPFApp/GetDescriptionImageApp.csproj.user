@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>D:\AI Proyectos\AA Github\ImageDescription\GetDescriptionImageApp\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Presentation\Controls\ConfigurationControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Presentation\Controls\Shared\GeneralButtonControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Presentation\Controls\ImagesControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Presentation\Controls\Shared\SpinnerControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Presentation\Controls\ConfigurationControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Presentation\Controls\Shared\GeneralButtonControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Presentation\Controls\ImagesControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Presentation\Controls\Shared\SpinnerControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Presentation\Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\StylesResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

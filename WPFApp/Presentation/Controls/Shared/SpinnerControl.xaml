@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="GetDescriptionImageApp.Presentation.Controls.Shared.SpinnerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             x:Name="spinnerControl">
+
+    <Grid DataContext="{Binding RelativeSource={RelativeSource Self}}" 
+          AutomationProperties.HelpText="Mostrando Spinner">
+        <Path Stroke="Transparent" 
+              StrokeThickness=".1" 
+              RenderTransformOrigin=".5,.5" 
+              Width="{Binding ElementName=spinnerControl, Path=Diameter}" 
+              Height="{Binding ElementName=spinnerControl, Path=Diameter}">
+            <Path.Data>
+                <CombinedGeometry GeometryCombineMode="Xor">
+                    <CombinedGeometry.Geometry1>
+                        <EllipseGeometry RadiusX="{Binding ElementName=spinnerControl, Path=Radius}" 
+                                         RadiusY="{Binding ElementName=spinnerControl, Path=Radius}" 
+                                         Center="{Binding ElementName=spinnerControl, Path=Center}"/>
+                    </CombinedGeometry.Geometry1>
+                    <CombinedGeometry.Geometry2>
+                        <EllipseGeometry RadiusX="{Binding ElementName=spinnerControl, Path=InnerRadius}" 
+                                         RadiusY="{Binding ElementName=spinnerControl, Path=InnerRadius}" 
+                                         Center="{Binding ElementName=spinnerControl, Path=Center}" />
+                    </CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+            </Path.Data>
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{Binding ElementName=spinnerControl, Path=ColorA}" Offset=".0" />
+                    <GradientStop Color="{Binding ElementName=spinnerControl, Path=ColorA}" Offset=".25" />
+                    <GradientStop Color="{Binding ElementName=spinnerControl, Path=ColorB}" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <RotateTransform />
+                <!--This is necessary for the animation not to stop-->
+            </Path.RenderTransform>
+            <Path.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(Rectangle.RenderTransform).(RotateTransform.Angle)"
+                                             To="360" Duration="0:0:1" RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Path.Triggers>
+        </Path>
+    </Grid>
+
+</UserControl>

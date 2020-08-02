@@ -1,0 +1,166 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:GetDescriptionImageApp.Resources">
+    
+    <!-- Grids -->
+    <Style x:Name="gridStyle" x:Key="GridStyle" TargetType="Grid" >
+        <Setter Property="Background" Value="#f3e5f5" />
+    </Style>
+
+    <!-- ListView -->
+    <Style x:Name="listViewStyle" x:Key="ListViewStyle" TargetType="ListView" >
+        <Setter Property="Background" Value="#f3e5f5" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    
+    <!-- Labels -->
+    <Style x:Name="labelStyle" x:Key="LabelStyle" TargetType="Label" >
+        <Setter Property="Foreground" Value="#000000" />
+        <Setter Property="Opacity" Value="0.55"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <!-- TextBlock -->
+    <Style x:Name="textBlockStyle" x:Key="TextBlockStyle" TargetType="TextBlock" >
+        <Setter Property="Foreground" Value="#000000" />
+        <Setter Property="Opacity" Value="0.75"/>
+    </Style>
+
+    <Style x:Name="textBlockButtonStyle" x:Key="TextBlockButtonStyle" TargetType="TextBlock" >
+        <Setter Property="Padding" Value="2 5 2 5"/>
+    </Style>
+
+    <!-- TextBloxListView  -->
+    <Style x:Name="textBloxListViewStyle" x:Key="TextBloxListViewStyle" TargetType="TextBox" >
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="auto"/>
+        <Setter Property="Margin" Value="0 0 0 10"/>
+    </Style>
+
+    <!-- TextBloxConfiguration  -->
+    <Style x:Name="textBloxConfigurationStyle" x:Key="TextBloxConfigurationStyle" TargetType="TextBox" >
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="Margin" Value="20 5 20 5"/>
+        <Setter Property="Height" Value="30"/>
+    </Style>
+
+    <!-- RadioButtons -->
+    <Style x:Name="radioStyle" x:Key="RadioStyle" TargetType="RadioButton" >
+        <Setter Property="Foreground" Value="#000000" />
+        <Setter Property="Opacity" Value="0.75"/>
+        <Setter Property="Margin" Value="5 0 50 0"/>
+    </Style>
+
+    <!-- ChecksBox -->
+    <Style x:Name="checkStyle" x:Key="CheckStyle" TargetType="CheckBox" >
+        <Setter Property="Foreground" Value="#000000" />
+        <Setter Property="Opacity" Value="0.75"/>
+        <Setter Property="Margin" Value="5 0 50 0"/>
+    </Style>
+
+    <!-- Borders -->
+    <Style x:Name="borderStyle" x:Key="BorderStyle" TargetType="Border" >
+        <Setter Property="BorderThickness" Value="1,1,1,1" />
+        <Setter Property="BorderBrush" Value="#6a1b9a" />
+        <Setter Property="CornerRadius" Value="4,4,0,0" />
+        <Setter Property="Margin" Value="2 0 2 0" />
+    </Style>
+
+    <Style x:Name="borderItemTabStyle" x:Key="BorderItemTabStyle" TargetType="Border" >
+        <Setter Property="BorderThickness" Value="1,1,1,1" />
+        <Setter Property="BorderBrush" Value="#6a1b9a" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Margin" Value="2 0 2 0" />
+    </Style>
+
+    <Style x:Name="borderImageStyle" x:Key="BorderImageStyle" TargetType="Border" >
+        <Setter Property="BorderThickness" Value="6,6,6,6" />
+        <Setter Property="BorderBrush" Value="#6a1b9a" />
+        <Setter Property="CornerRadius" Value="4,4,0,0" />
+        <Setter Property="Margin" Value="2 0 2 0" />
+    </Style>
+
+    <!-- Images -->
+    <Style x:Name="imageButtonStyle" x:Key="ImageButtonStyle" TargetType="Image" >
+        <Setter Property="Margin" Value="5 0 15 0" />
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+    </Style>
+
+    <!-- Botones -->
+    <Style x:Name="buttonStyle" x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="#9c4dcc"/>
+        <Setter Property="BorderBrush" Value="#38006b"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Opacity" Value="95"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Button.Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Black" Direction="300" ShadowDepth="6" BlurRadius="6" Opacity="0.6" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="buttonRadius" 
+                            CornerRadius="5" 
+                            BorderThickness="1"
+                            Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center">
+                        </ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background"  Value="#6a1b9a"/>
+                            <Setter Property="BorderBrush" Value="#38006b" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Opacity" Value="65"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- TabControl -->
+    <Style x:Name="tabControlStyle" x:Key="TabControlStyle"  TargetType="TabItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <Border Name="Border" Style="{StaticResource BorderStyle}">
+                        <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="10,2"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#9c4dcc" />
+                            <Setter TargetName="Border" Property="Opacity" Value="95" />
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="#6a1b9a" />
+                            <Setter TargetName="Border" Property="Opacity" Value="65" />
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Margin" Value="0,0,0,-3"></Setter>
+    </Style>
+</ResourceDictionary>

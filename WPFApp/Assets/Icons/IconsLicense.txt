@@ -1,0 +1,5 @@
+﻿WEB: https://mariodelvalle.github.io/CaptainIconWeb/
+License: Creative Commons, https://creativecommons.org/licenses/
+
+
+* Han sido modificados los colores de lo iconos para adaptarlos a la aplicación.

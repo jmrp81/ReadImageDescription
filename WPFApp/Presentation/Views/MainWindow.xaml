@@ -1,0 +1,38 @@
+﻿<Window x:Class="GetDescriptionImageApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:GetDescriptionImageApp.Presentation.Controls"
+        xmlns:resx="clr-namespace:GetDescriptionImageApp.Resources" 
+        mc:Ignorable="d"
+        Title="{x:Static resx:GeneralResources.Title}" 
+        VerticalAlignment="Center"
+        HorizontalAlignment="Center"
+        Height="600"
+        MinHeight="450"
+        Width="800"
+        MinWidth="800"
+        x:Name="MainContainer">
+    <Window.Resources>
+        <ResourceDictionary Source="../../Resources/StylesResources.xaml" />
+    </Window.Resources>
+    <Grid>
+        <TabControl BorderThickness="0">
+            <TabItem Header="{x:Static resx:GeneralResources.Actions}" 
+                     Style="{StaticResource TabControlStyle}"
+                     x:Name="TabImagesControl">
+                <Border Style="{StaticResource BorderItemTabStyle}">
+                    <uc:ImagesControl x:Name="imagesControl"></uc:ImagesControl>
+                </Border>
+            </TabItem>
+            <TabItem Header="{x:Static resx:GeneralResources.Configuration}" 
+                     Style="{StaticResource TabControlStyle}"
+                     x:Name="TabConfigurationControl">
+                <Border Style="{StaticResource BorderItemTabStyle}">
+                    <uc:ConfigurationControl x:Name="configurationControl"></uc:ConfigurationControl>
+                </Border>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

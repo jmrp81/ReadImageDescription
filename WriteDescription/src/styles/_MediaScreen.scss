@@ -1,0 +1,201 @@
+@import "../styles/variables";
+
+body{
+    font-size: 1em;
+}  
+
+// cabecera
+header {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+header h2 {
+    margin-bottom: 0;
+}
+
+header h4 {
+    margin-top: 1em;
+}
+
+header button {
+    font-size: 1em;
+}
+
+.container {
+    height: 75vh;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+.title {
+    font-size: 1em;
+}
+
+.subtitle {
+    font-size: 1em;
+}
+
+.contentItem {
+    width: 20%;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.5em;
+}
+
+.itemImage{
+    height: 96px;
+}
+
+/* Adaptación tamaño letra según pantalla */
+@media screen and (max-width: 2100px) {
+    
+    html {
+        font-size: 16pt;
+    }
+
+    body{
+        background-image: url('./../assets/app-images/desktopBackgroundLogo2.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
+    }  
+
+    .containerQuienesSomos {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 1700px) {
+    
+    html {
+        font-size: 16pt;
+    }
+
+    body{
+        background-image: url('./../assets/app-images/desktopBackgroundLogo2.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
+    } 
+}
+
+@media screen and  (max-width: 1100px) {
+    html {
+        font-size: 16pt;
+   }
+
+    body{
+        background-image: url('./../assets/app-images/desktopBackgroundLogo2.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
+        font-size: 0.95em;
+    } 
+}
+
+@media screen and (max-width: 980px) {
+    html {
+        font-size: 16pt;
+   }
+
+    body{
+        background-image: url('./../assets/app-images/desktopBackgroundLogo2.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+
+    header {
+        height: 6vh;
+    }
+
+    header button {
+        font-size: 1em;
+    }
+
+    .container {
+        height: 80vh;
+    }
+
+    .contentItem {
+        width: 40%;
+        font-size: 1.05em;
+        margin: 0.5em .74em 0.75em 0;
+        padding: 0.5em;
+    }
+
+    .contentItem h6 {
+        margin: 0;
+        font-size: 1.05em;
+    }
+
+    .itemImage{
+        height: 54px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body{
+        background-image: url('./../assets/app-images/mobileBackgroundLogo.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+    
+    html {
+        font-size: 13pt;
+    }
+
+    header {
+        height: 6vh;
+    }
+
+    .container {
+        height: 80vh;
+    }
+    
+    .contentItem {
+        width: 42%;
+        font-size: 1em;
+        margin: .5em .5em 0.5em 0;
+        padding: 0.5em;
+    }
+
+    .contentItem h6 {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    .itemImage{
+        height: 48px;
+    }
+}
+ 
+@media screen and (max-width: 600px) {
+    html {
+         font-size: 11pt;
+    }
+
+    header {
+        height: 6vh;
+    }
+
+    .container {
+        height: 80vh;
+    }
+    
+    .contentItem {
+        width: 42%;
+        font-size: 1em;
+        margin: .5em .5em 0.5em 0;
+        padding: 0.5em;
+    }
+
+    .contentItem h6 {
+        margin: 0;
+    }
+
+    .itemImage{
+        height: 48px;
+    }
+}

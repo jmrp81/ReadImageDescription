@@ -1,0 +1,9 @@
+<div class="galery-container">
+    <ul class="galery-container-list">
+        <li *ngFor="let actualImage of imageList">
+            <img class="galery-container-list-image" src={{actualImage.url}} alt={{actualImage.alt}} (load)="getImageInfo($event, actualImage)" (click)="setImageDescription($event, actualImage)"> 
+            <label class="labelAutor">Pulsar imagen para obtener descripción.</label>
+            <label class="labelAutor">Descripción: {{actualImage.alt}}</label>
+        </li>
+    </ul>
+</div>

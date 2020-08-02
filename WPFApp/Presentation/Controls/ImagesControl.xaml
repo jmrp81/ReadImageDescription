@@ -1,0 +1,210 @@
+﻿<UserControl x:Class="GetDescriptionImageApp.Presentation.Controls.ImagesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uc="clr-namespace:GetDescriptionImageApp.Presentation.Controls"
+             xmlns:ucShared="clr-namespace:GetDescriptionImageApp.Presentation.Controls.Shared"
+             xmlns:resx="clr-namespace:GetDescriptionImageApp.Resources" 
+             mc:Ignorable="d" 
+             x:Name="ImagesContainer">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="../../Resources/StylesResources.xaml" />
+    </UserControl.Resources>
+
+    <Grid Style="{StaticResource GridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Label  
+                Grid.Row="0" Grid.Column="0" 
+                Style="{StaticResource LabelStyle}"
+                Content="{x:Static resx:GeneralResources.AzureRequirements}" 
+                Target="{Binding ElementName=LegendContainer}"
+                AutomationProperties.HelpText="{x:Static resx:GeneralResources.AzureRequirements}"/>
+            
+            <StackPanel x:Name="LegendContainer"
+                        Grid.Row="1" Grid.Column="0" 
+                        Orientation="Vertical" 
+                        VerticalAlignment="Stretch" 
+                        HorizontalAlignment="Center">
+                <TextBox Name="imageFormat" 
+                                   Style="{StaticResource TextBloxListViewStyle}"
+                                   Text="{x:Static resx:GeneralResources.ImageFormatRequirement}" 
+                                   IsReadOnly="true"
+                                   IsReadOnlyCaretVisible="True"
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Bottom"
+                                   TextWrapping="Wrap" />
+                <TextBox Name="imageSize" 
+                                   Style="{StaticResource TextBloxListViewStyle}"
+                                   Text="{x:Static resx:GeneralResources.MaxSizeImageRequirement}" 
+                                   IsReadOnly="true"
+                                   IsReadOnlyCaretVisible="True"
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Bottom"
+                                   TextWrapping="Wrap"/>
+                <TextBox Name="imageDimensions" 
+                                   Style="{StaticResource TextBloxListViewStyle}"
+                                   Text="{x:Static resx:GeneralResources.ImageDimensionsRequirement}" 
+                                   IsReadOnly="true"
+                                   IsReadOnlyCaretVisible="True"
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Bottom"
+                                   TextWrapping="Wrap" />
+            </StackPanel>
+            <ucShared:GeneralButtonControl
+                Grid.Row="3" Grid.Column="0" 
+                VerticalContentAlignment="Center"
+                ImageName="/Assets/Images/upload.png"  
+                TextValue="{x:Static resx:GeneralResources.UploadImages}" 
+                CustomClick="UploadImagesClick"/>
+            <ucShared:GeneralButtonControl
+                Grid.Row="4" Grid.Column="0" 
+                VerticalContentAlignment="Center"
+                ImageName="/Assets/Images/pencil.png"  
+                TextValue="{x:Static resx:GeneralResources.GetDescription}"
+                CustomClick="ModifiedImage"/>
+        </Grid>
+
+        <Label x:Name="LabelImageSelection"
+               Grid.Row="0" Grid.Column="1" 
+               Grid.ColumnSpan="2"  
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Visibility="Hidden"
+               Style="{StaticResource LabelStyle}"
+               Target="{Binding ElementName=ImageListBox}"
+               Content="{x:Static resx:GeneralResources.ImageSelect}" />
+
+        <ListView x:Name="ImageListBox" 
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2" 
+            Style="{StaticResource ListViewStyle}"
+            HorizontalAlignment="Center"
+            ScrollViewer.CanContentScroll="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel 
+                        Orientation="Vertical" 
+                        VerticalAlignment="Stretch" 
+                        HorizontalAlignment="Center"
+                        Width="460">
+
+                        <Label 
+                            Style="{StaticResource LabelStyle}"
+                            Content="{x:Static resx:GeneralResources.Path}" 
+                            Target="{Binding ElementName=imageName}"/>
+                        <TextBox Name="imageName" 
+                                   Style="{StaticResource TextBloxListViewStyle}"
+                                   Text="{Binding Name}" 
+                                   IsReadOnly="true"
+                                   IsReadOnlyCaretVisible="True"
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Bottom"
+                                   TextWrapping="Wrap"
+                                   AutomationProperties.HelpText="{x:Static resx:GeneralResources.CurrentImagePath}"/>
+
+                        <Label 
+                            Style="{StaticResource LabelStyle}" 
+                            Content="{x:Static resx:GeneralResources.Description}" 
+                            Target="{Binding ElementName=imageAlt}"/>
+                        <TextBox Name="imageAlt" 
+                                   Style="{StaticResource TextBloxListViewStyle}"
+                                   Text="{Binding Alt}" 
+                                   HorizontalAlignment="Center" 
+                                   IsReadOnly="true"
+                                   IsReadOnlyCaretVisible="True"
+                                   VerticalAlignment="Bottom"
+                                   TextWrapping="Wrap"
+                                   AutomationProperties.HelpText="{x:Static resx:GeneralResources.ImageDescriptionIs}"/>
+
+                        <Grid Width="460">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                <ColumnDefinition Width="400"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0"
+                                    Orientation="Vertical" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center">
+                                <CheckBox IsChecked="{Binding IsSelected}"
+                                          AutomationProperties.HelpText="{x:Static resx:GeneralResources.CheckBoxDescription}">
+                                </CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="center"
+                                    Grid.Row="0" Grid.Column="1">
+                                <Border Style="{StaticResource BorderImageStyle}">
+                                    <Image Source="{Binding ImageData}" 
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Top"
+                                           Height="200"
+                                           AutomationProperties.HelpText="{x:Static resx:GeneralResources.Path}"/>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+
+                        <Separator/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel x:Name="Footer"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+            <Image Source="/Assets/Images/Afaya_enano.jpg" 
+                   Width="200" 
+                   Margin="0 0 5 0" 
+                   AutomationProperties.HelpText="{x:Static resx:GeneralResources.DescriptionLogoAfaya}"/>
+        </StackPanel>
+
+        <ucShared:SpinnerControl x:Name="Spinner"
+                    Visibility="Hidden"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.RowSpan="3"
+                    Grid.ColumnSpan="3"
+                    VerticalContentAlignment="Center"
+                    Diameter="200"
+                    ColorA="#E880DF" 
+                    ColorB="#3CBCE8" 
+                    Opacity="0.8"
+                    Background="Black"
+                    Height="{Binding ElementName=ImagesContainer, Path=ActualHeight}"
+                    Width="{Binding ElementName=ImagesContainer, Path=ActualWidth}"/>
+    </Grid>
+</UserControl>

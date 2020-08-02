@@ -1,0 +1,20 @@
+﻿DescriptionImageApp
+1.0.0.0
+
+winexe
+C#
+.cs
+D:\AI Proyectos\AA Github\ImageDescription\GetDescriptionImageApp\obj\Release\netcoreapp3.1\
+GetDescriptionImageApp
+none
+false
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
+D:\AI Proyectos\AA Github\ImageDescription\GetDescriptionImageApp\App.xaml
+6-1946366976
+121711017225
+22-1517068077
+1921654412462
+Presentation\Controls\ConfigurationControl.xaml;Presentation\Controls\ImagesControl.xaml;Presentation\Controls\Shared\GeneralButtonControl.xaml;Presentation\Controls\Shared\SpinnerControl.xaml;Presentation\Views\MainWindow.xaml;Resources\StylesResources.xaml;
+
+True
+
