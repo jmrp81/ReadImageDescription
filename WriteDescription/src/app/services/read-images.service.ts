@@ -10,53 +10,51 @@ import { GaleryImage } from '../models/galery-image';
 })
 export class ReadImagesService {
   imageList = new Array<GaleryImage>();
-  imagesNumber = 1;
+  imagesNumber = 2;
 
   constructor() { }
 
   getImageInformation(): Array<GaleryImage> {
     for (let i = 1; i <= this.imagesNumber; i++) {
-      const actualImage = new GaleryImage();
-      actualImage.imageName = 'Image (' + i + ').jpg';
-      actualImage.url = '../../assets/images/' + actualImage.imageName;
-      actualImage.alt = 'Imagen sin descripción.';
-      actualImage.autor = 'ReadImaeDescription';
+      const currentImage = new GaleryImage();
+      currentImage.imageName = 'Image (' + i + ').jpg';
+      currentImage.url = '../../assets/images/' + currentImage.imageName;
+      currentImage.alt = 'Imagen sin descripción.';
+      currentImage.autor = 'ReadImaeDescription';
 
-      this.imageList.push(actualImage);
+      this.imageList.push(currentImage);
     }
 
     return this.imageList;
   }
 
-  loadedImageDescription(event: any, actualImage: GaleryImage): any {
-    const infoObtained = piexif.load(actualImage.imageBase64);
+  loadedImageDescription(event: any, currentImage: GaleryImage): any {
+    const infoObtained = piexif.load(currentImage.imageBase64);
     const zeroTh = infoObtained['0th'];
     return zeroTh[270];
   }
 
-  // https://github.com/hMatoba/piexifjs
-  modifyDescription(event: any, actualImage: GaleryImage): void {
-    const infoObtained = piexif.load(actualImage.imageBase64);
+  modifyDescription(event: any, currentImage: GaleryImage): void {
+    const infoObtained = piexif.load(currentImage.imageBase64);
     const zeroTh = infoObtained['0th'];
-    zeroTh[270] = actualImage.description;
-    infoObtained.Exif[37510] = actualImage.description;
+    zeroTh[270] = currentImage.description;
+    infoObtained.Exif[37510] = currentImage.description;
     const exifStr = piexif.dump(infoObtained); // Get exif as string to insert into JPEG.
-    const insertedInfoToJPEG = piexif.insert(exifStr, actualImage.imageBase64);
-    // piexif.remove(actualImage.imageData); // Remove exif from JPEG.
+    const insertedInfoToJPEG = piexif.insert(exifStr, currentImage.imageBase64);
 
-    const newJpeg = Buffer.from(insertedInfoToJPEG, 'binary'); // install npm i @types/node type definitions node
-    saveAs(insertedInfoToJPEG, actualImage.imageName);
+    const newJpeg = Buffer.from(insertedInfoToJPEG, 'binary');
+    saveAs(insertedInfoToJPEG, currentImage.imageName);
   }
 
-  getBase64Image(imageSRC: any, actualImage: GaleryImage): void {
+  getBase64Image(imageSRC: any, currentImage: GaleryImage): void {
     const xhr = new XMLHttpRequest();
 
     xhr.onload = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
-        actualImage.imageBase64 = reader.result;
+        currentImage.imageBase64 = reader.result;
       };
-      actualImage.imageBytes = xhr.response;
+      currentImage.imageBytes = xhr.response;
       reader.readAsDataURL(xhr.response);
     };
 
